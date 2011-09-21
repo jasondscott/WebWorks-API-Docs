@@ -1,0 +1,962 @@
+<!--
+* Copyright 2010-2011 Research In Motion Limited.
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.-->
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- ============================== header ================================= -->    
+<html> 
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+        
+            <title>Banner</title>
+        
+        
+        <style type="text/css">
+            .apiColumn {
+                width: 200px;
+            }
+            
+            .apiTable {
+                margin: 5px;
+                border-collapse: collapse;
+            }
+            
+            .apiYes {
+                background-color: #95B9C7;
+                color:#FAF8CC;
+                text-align:center;
+            }
+            
+            .apiNo {
+                background-color: #FAF8CC;
+                text-align:center;
+            }
+            
+            .apiTh {
+                border-width: 1px;
+                border-style: solid;
+                border-color: #ccc;
+                padding: 5px;
+                background-color: #f0f0f0;
+                text-align: left;
+                vertical-align: top;
+            }
+            
+            .apiTd {
+                border-width: 1px;
+                border-style: solid;
+                border-color: #ccc;
+                padding: 5px;
+                vertical-align: top;
+            }
+            
+            .apiProperty {
+                padding-left: 20px;
+            }
+            
+            .elemTh {
+                text-align: left;
+                vertical-align: top;
+                color: #616161;
+            }
+            
+            table.betaTable {
+                border-width: 1px;
+                border-style: solid;
+                border-color: #ccc;
+                padding: 5px;
+                vertical-align: top;
+                margin: 5px;
+                margin-bottom:15px;
+                width : 90%;
+                background-color: #FCD8B9;
+            }
+            
+            td.betaTd {
+                color: #484848;
+                vertical-align: top;
+                background-color: #FCD8B9;
+            }
+            #APISupportTable {
+                display: none;
+            }
+        </style>
+      
+        <link rel="stylesheet" href="common.css" type="text/css" />
+        <script src="server.js" type="text/javascript"></script>
+    </head>
+    
+<!-- ============================== Body ============================ -->   
+    <body><div class="scrollable" id="content">     
+    
+<!-- ============================== description ============================ -->
+        <p>
+            
+                The Banner object is an advertising banner that will be created and automatically added into a specified div in your html.
+            
+        </p>
+        
+<!-- ============================== notice ============================ -->
+        
+    
+        
+            
+                
+                    <table class="noticeTable">
+                        <tr>
+                            <td class="noticeTd">
+                                <div class="title">Please Note:</div>
+                                
+Minimum requirement is BlackBerry&reg; WebWorks SDK 2.1.<br>
+Set access to "blackberry.advertising" and "www.blackberry.com" in the app config.xml
+<br> <br>
+<code>
+&lt;xml version="1.0" encoding="UTF-8" ?&gt; <br>
+&lt;widget xmlns="http://www.w3.org/ns/widgets" xmlns:rim="http://www.blackberry.com/ns/widgets" version="2.1" rim:header="RIM-Widget: rim/widget"&gt; <br>
+  &nbsp;&nbsp;&nbsp;&lt;access subdomains="true" uri="http://www.blackberry.com/"&gt; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;feature id="blackberry.advertising" required="true" version="1.0.0" /&gt; <br>
+  &nbsp;&nbsp;&nbsp;&lt;/access&gt; <br>
+  &nbsp;&nbsp;&nbsp;&lt;accesss subdomains="true" uri="*" /&gt; <br>
+&lt;/widget&gt; <br>
+</code>
+                            </td>
+                        </tr>
+                    </table>
+                
+            
+        
+        
+<!-- ============================== Beta Tag ============================ -->
+        
+            <table class="betaTable">
+                 <tr>
+                    <td class="betaTd">
+                        <div class="title">Beta Notice:</div>
+                        This API is considered to be in Beta.
+                        The function and property signatures listed below could change at anytime.
+                        Once the API moves out of Beta it will be distributed as part of the core API.
+                        <br/><br/>
+                        
+                            <a href="https://adservices.blackberry.com/register">Sign up</a> for the BlackBerry&reg; Advertising Service <br>
+<a href="#placeholder"> Development Guide - Advertising Service for BlackBerry WebWorks </a>
+                        
+                        <br/><br/>
+                        <i>Last Updated: Wed Sep 21 2011 15:04:15 GMT-0000 (UTC)</i>
+                    </td>
+                 </tr>
+            </table>
+        
+    
+<!-- ============================== Learning Resources ============================ -->
+        
+        
+<!-- ============================== Support Platforms ============================ -->
+        
+        
+        
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+        
+            <div class="title">Supported Platform(s)</div>      
+            <table class="scriptTable">         
+                <tr> 
+                    <td class="scriptTd">
+                        
+                            - BlackBerry OS 6.0+<br/>
+                        
+                    </td> 
+                </tr>
+                <tr>
+                    <td>
+                        <div>- Supported Platform Table: <span id="codeExpand" onclick="codeClick('APISupportTable',this)";>Expand</span></div>
+                        <div id="APISupportTable">
+                            <table class="apiTable">
+                                <tr>
+                                    <th class="apiTh apiColumn">
+                                       API
+                                       
+                                    </th>
+                                    <th class="apiTh" >
+                                       OS 5.0
+                                       
+                                    </th>
+                                    <th class="apiTh" >
+                                       OS 6.0
+                                       
+                                    </th>
+						<th class="apiTh" >
+                                       OS 7.0
+                                       
+                                    </th>
+                                    <th class="apiTh" >
+                                       PlayBook
+                                       
+                                    </th>
+                                </tr>
+                                
+                                    
+                                        <tr x-ww-support="bb6.0|bb7.0">
+                                            <td class="apiTd">
+                                                <a href="blackberry.advertising.Banner.html">blackberry.advertising.Banner</a>                               
+                                                <td class="apiTd apiNo">&nbsp;</td>
+<td class="apiTd apiYes">Y</td>
+<td class="apiTd apiYes">Y</td>
+<td class="apiTd apiNo">&nbsp;</td>
+                                            </td>
+                                        </tr>                               
+                                    
+                                
+                                
+                                    <tr x-ww-support="bb6.0|bb7.0">
+                                        <td class="apiTd">
+                                            <a href="blackberry.advertising.Banner.html#bannerTransitions">bannerTransitions</a>                               
+                                            <td class="apiTd apiNo">&nbsp;</td>
+<td class="apiTd apiYes">Y</td>
+<td class="apiTd apiYes">Y</td>
+<td class="apiTd apiNo">&nbsp;</td>
+                                        </td>
+                                    </tr>                               
+                                
+                                    <tr x-ww-support="bb6.0|bb7.0">
+                                        <td class="apiTd">
+                                            <a href="blackberry.advertising.Banner.html#focusBorderColor">focusBorderColor</a>                               
+                                            <td class="apiTd apiNo">&nbsp;</td>
+<td class="apiTd apiYes">Y</td>
+<td class="apiTd apiYes">Y</td>
+<td class="apiTd apiNo">&nbsp;</td>
+                                        </td>
+                                    </tr>                               
+                                
+                                    <tr x-ww-support="bb6.0|bb7.0">
+                                        <td class="apiTd">
+                                            <a href="blackberry.advertising.Banner.html#focusBorderWidth">focusBorderWidth</a>                               
+                                            <td class="apiTd apiNo">&nbsp;</td>
+<td class="apiTd apiYes">Y</td>
+<td class="apiTd apiYes">Y</td>
+<td class="apiTd apiNo">&nbsp;</td>
+                                        </td>
+                                    </tr>                               
+                                
+                                    <tr x-ww-support="bb6.0|bb7.0">
+                                        <td class="apiTd">
+                                            <a href="blackberry.advertising.Banner.html#metadata">metadata</a>                               
+                                            <td class="apiTd apiNo">&nbsp;</td>
+<td class="apiTd apiYes">Y</td>
+<td class="apiTd apiYes">Y</td>
+<td class="apiTd apiNo">&nbsp;</td>
+                                        </td>
+                                    </tr>                               
+                                
+                                    <tr x-ww-support="bb6.0|bb7.0">
+                                        <td class="apiTd">
+                                            <a href="blackberry.advertising.Banner.html#mmaSize">mmaSize</a>                               
+                                            <td class="apiTd apiNo">&nbsp;</td>
+<td class="apiTd apiYes">Y</td>
+<td class="apiTd apiYes">Y</td>
+<td class="apiTd apiNo">&nbsp;</td>
+                                        </td>
+                                    </tr>                               
+                                
+                                    <tr x-ww-support="bb6.0|bb7.0">
+                                        <td class="apiTd">
+                                            <a href="blackberry.advertising.Banner.html#placeholder">placeholder</a>                               
+                                            <td class="apiTd apiNo">&nbsp;</td>
+<td class="apiTd apiYes">Y</td>
+<td class="apiTd apiYes">Y</td>
+<td class="apiTd apiNo">&nbsp;</td>
+                                        </td>
+                                    </tr>                               
+                                
+                                    <tr x-ww-support="bb6.0|bb7.0">
+                                        <td class="apiTd">
+                                            <a href="blackberry.advertising.Banner.html#refreshRate">refreshRate</a>                               
+                                            <td class="apiTd apiNo">&nbsp;</td>
+<td class="apiTd apiYes">Y</td>
+<td class="apiTd apiYes">Y</td>
+<td class="apiTd apiNo">&nbsp;</td>
+                                        </td>
+                                    </tr>                               
+                                
+                            </table>
+                        </div>
+                    </td>
+                </tr>           
+            </table>
+        
+        
+<!-- ============================== Configuration Settings  ============================ -->	
+    <br/>
+    <div class="title">Configuration Document Settings</div>
+        To use <u>all</u> of the API described for this object, you must ensure the following settings are in your configuration document:      
+    
+    <table class="scriptTable">
+        <tr>
+            <th class="elemTh">Feature Elements</th>
+        </tr>
+        
+            <tr><td class="scriptTd">
+            You must declare the feature element(s) below in your configuration document:
+            </td></tr>
+            <br>
+            <tr><td>
+                <div id="FeatureIDSupportTable" style="display:inline;" >
+                    <table class="apiTable">
+                        <tr>
+                            <th class="apiTh">
+                               Feature ID
+                               
+                            </th>
+                            <th class="apiTh" >
+                               OS 5.0
+                               
+                            </th>
+                            <th class="apiTh" >
+                               OS 6.0
+                               
+                            </th>
+				    <th class="apiTh" >
+                               OS 7.0
+                                       
+                            </th>
+                            <th class="apiTh" >
+                               PlayBook
+                               
+                            </th>
+                        </tr>
+                        
+                          
+                            
+                                
+                            
+                            <tr x-ww-support="bb6.0|bb7.0">
+                                <td class="apiTd">
+                                    &lt;feature id="blackberry.advertising" /&gt;                               
+                                    <td class="apiTd apiNo">&nbsp;</td>
+<td class="apiTd apiYes">Y</td>
+<td class="apiTd apiYes">Y</td>
+<td class="apiTd apiNo">&nbsp;</td>
+                                </td>
+                            </tr>
+                        
+                    </table>
+                 </div>
+             </td></tr>       
+        
+    </table>
+    
+    <div x-ww-support="">
+        <table class="scriptTable">
+        <tr><th class="elemTh">Permission Elements (PlayBook Only)</th></tr>
+        
+            <tr><td class="scriptTd">
+            This API does not require a &lt;permission&gt; element to be declared in the configuration document of your BlackBerry WebWorks Application.
+            </td></tr><br/>
+        
+        </table>
+    </div>
+
+<!-- ============================== Constructor Summary ========================= -->
+        
+            <div x-ww-support="bb6.0|bb7.0">
+                <h1>Constructors</h1>
+                <ul class="ulNoTopMargin">
+                    
+                        <li x-ww-support="bb6.0|bb7.0">
+                            <a href="blackberry.advertising.Banner.html">blackberry.advertising.Banner</a>
+                            
+                        </li>
+                    
+                </ul>
+            </div>
+        
+    
+<!-- ============================== Deprecation setup  ==================== -->
+        
+        
+<!-- ============================== Function Summary  ==================== -->    
+        
+        
+        
+       
+    
+    <!-- ============================== Inherited Functions Summary  ==================== -->   
+        
+        
+                   
+        
+<!-- ============================== events summary ======================== -->
+        
+        
+        
+        
+        
+        
+<!-- ============================== Inherited Event Summary  ==================== -->   
+        
+        
+        
+<!-- ============================== Properties summary ===================== -->
+        
+        
+        
+            
+            <br/>
+            <div x-ww-support="bb6.0|bb7.0">
+                <h1>Properties</h1>
+        
+        
+              
+                <ul class="ulNoTopMargin">
+                    
+                        <li x-ww-support="bb6.0|bb7.0">
+                            <a href="blackberry.advertising.Banner.html#bannerTransitions">bannerTransitions</a>
+                            
+                        </li>               
+                    
+                        <li x-ww-support="bb6.0|bb7.0">
+                            <a href="blackberry.advertising.Banner.html#focusBorderColor">focusBorderColor</a>
+                            
+                        </li>               
+                    
+                        <li x-ww-support="bb6.0|bb7.0">
+                            <a href="blackberry.advertising.Banner.html#focusBorderWidth">focusBorderWidth</a>
+                            
+                        </li>               
+                    
+                        <li x-ww-support="bb6.0|bb7.0">
+                            <a href="blackberry.advertising.Banner.html#metadata">metadata</a>
+                            
+                        </li>               
+                    
+                        <li x-ww-support="bb6.0|bb7.0">
+                            <a href="blackberry.advertising.Banner.html#mmaSize">mmaSize</a>
+                            
+                        </li>               
+                    
+                        <li x-ww-support="bb6.0|bb7.0">
+                            <a href="blackberry.advertising.Banner.html#placeholder">placeholder</a>
+                            
+                        </li>               
+                    
+                        <li x-ww-support="bb6.0|bb7.0">
+                            <a href="blackberry.advertising.Banner.html#refreshRate">refreshRate</a>
+                            
+                        </li>               
+                    
+                </ul>
+        
+<!-- ============================== Inherited Properties Summary  ==================== -->  
+        
+        
+        
+            </div>
+           
+<!-- ============================== Constants summary ===================== -->
+        
+        
+        
+        
+        
+    
+<!-- ============================== Inherited Constants Summary  ==================== -->   
+        
+        
+        
+<!-- ============================== URI Summary  ==================== -->           
+        
+        
+        
+        
+               
+    
+<!-- ============================== Inherited URI Summary  ==================== --> 
+        
+        
+        
+        
+<!-- ============================== Deprecation Notice  ==================== -->
+           
+        
+<!-- ============================== Constructor Details ========================= -->
+        
+           
+               <div x-ww-support="bb6.0|bb7.0">
+                   <h2><a name=".Banner"> </a>blackberry.advertising.Banner</h2>
+                   <hr style="margin-bottom: 15px;"/>
+            
+                    <table class="scriptTable">
+                        <tr>
+                            <td class="scriptTd">
+                               blackberry.advertising.Banner
+                               
+                                   (zoneId : Number, divId : String, <i>[properties: JSON]</i>)
+                               
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                
+                               
+                                                
+                    <div class="title">Supported Platform(s)</div>      
+                    
+                        &nbsp;- BlackBerry OS 6.0+<br/>
+                                                      
+                    <br/>
+                    
+                    <div class="title">Description</div>
+                    &nbsp;Creates a new Banner Object with the given properties and automatically inserts it into the div with the specified id.
+            
+                    
+                        <br/><br/>
+                        <table class="confluenceTable">
+                            <tr>
+                                <th class="confluenceTh">
+                                   Parameter
+                                   
+                                </th>
+                                <th class="confluenceTh">
+                                   Type
+                                   
+                                </th>
+                                <th class="confluenceTh">
+                                   Description
+                                   
+                                </th>
+                            </tr>
+                                           
+                            
+                                
+                                <tr>
+                                    <td class="confluenceTd"><b>zoneId</b></td>
+                                    <td class="confluenceTd">
+                                        
+                                            Number
+                                        
+                                                                                            
+                                    </td>
+                                    <td class="confluenceTd">
+                                        
+                                        The Zone Id given to the developer by the BlackBerry Advertising Service on registration.                         
+                                        
+                                    </td>
+                                </tr>
+                            
+                                
+                                <tr>
+                                    <td class="confluenceTd"><b>divId</b></td>
+                                    <td class="confluenceTd">
+                                        
+                                            String
+                                        
+                                                                                            
+                                    </td>
+                                    <td class="confluenceTd">
+                                        
+                                        The id attribute of the div tag to which the banner will be inserted.                         
+                                        
+                                    </td>
+                                </tr>
+                            
+                                
+                                <tr>
+                                    <td class="confluenceTd"><b>properties</b></td>
+                                    <td class="confluenceTd">
+                                        
+                                            JSON
+                                        
+                                        <br/><i>Optional</i>                                                    
+                                    </td>
+                                    <td class="confluenceTd">
+                                        
+                                        A set of options to further customize the advertising banner.                         
+                                        
+                                            <br/>
+                                            
+                                                <br/>
+                                                <b>bannerTransitions:</b> Sets the <a href="blackberry.advertising.Banner.html#bannerTransitions">bannerTransitions</a> property.
+                                            
+                                                <br/>
+                                                <b>focusBorderColor:</b> Sets the <a href="blackberry.advertising.Banner.html#focusBorderColor">focusBorderColor</a> property.
+                                            
+                                                <br/>
+                                                <b>focusBorderWidth:</b> Sets the <a href="blackberry.advertising.Banner.html#focusBorderWidth">focusBorderWidth</a> property.
+                                            
+                                                <br/>
+                                                <b>metadata:</b> Sets the <a href="blackberry.advertising.Banner.html#metadata">metadata</a> property.
+                                            
+                                                <br/>
+                                                <b>mmaSize:</b> Sets the <a href="blackberry.advertising.Banner.html#mmaSize">mmaSize</a> property.
+                                            
+                                                <br/>
+                                                <b>placeholder:</b> Sets the <a href="blackberry.advertising.Banner.html#placeholder">placeholder</a> property.
+                                            
+                                                <br/>
+                                                <b>refreshRate:</b> Sets the <a href="blackberry.advertising.Banner.html#refreshRate">refreshRate</a> property.
+                                            
+                                        
+                                    </td>
+                                </tr>
+                                          
+                        </table>
+                    
+            
+                    
+                        <br/>
+                        <div class="title">Code Example(s)</div>
+                        
+                            <table class="scriptTable">             
+                                <tr><td class="scriptTd">
+                                   <pre>Include Advertising SDK JavaScript and API code into all the HTML pages as shown below:
+Example 1:
+
+&lt;script type="text/javascript" src="http://www.blackberry.com/app_includes/asdk/adBanner.js"&gt;&lt;/script&gt;
+ 
+&lt;center&gt; &lt;div id='bannerDiv'&gt;     &lt;/div&gt; &lt;/center&gt;
+
+&lt;script type="text/javascript"&gt;
+  //Adding Banner with default Banner properties
+ var banner1 = new blackberry.advertising.Banner(31848, "bannerDiv");   
+&lt;/script&gt;</pre>
+                                </td></tr>              
+                            </table>
+                        
+                            <table class="scriptTable">             
+                                <tr><td class="scriptTd">
+                                   <pre>Example 2: 
+&lt;script type="text/javascript" src="http://www.blackberry.com/app_includes/asdk/adBanner.js"&gt;&lt;/script&gt;
+ 
+&lt;center&gt; &lt;div id='bannerDiv'&gt;     &lt;/div&gt; &lt;/center&gt;
+
+&lt;script type="text/javascript"&gt;
+ //Adding Banner with custom Banner properties
+ var banner1 = new blackberry.advertising.Banner(31848, "bannerDiv", {"bannerTransitions" : true,
+                                                                "mmaSize" : "extralarge",
+                                                                "focusBorderColor" : "blue",
+                                                                "focusBorderWidth" : "2px",
+                                                                "refreshRate" : 6000,
+                                                                "placeholder" : "http://test.com/placeholder.jpg"},
+                                                                "metadata": {"age" : "12",
+                                                                             "gender" : "male",
+                                                                             "city" : "SanFrancisco"}
+                                                               };
+&lt;/script&gt;</pre>
+                                </td></tr>              
+                            </table>
+                        
+                                   
+                </div>
+            
+        
+<!-- ============================== Function details ========================= -->      
+        
+                
+<!-- ============================== Event details ========================= -->     
+        
+<!-- ============================== properties details ========================== -->       
+        
+           
+            <div x-ww-support="bb6.0|bb7.0">
+                <h2>Properties:</h2>
+                <hr style="margin-bottom: 15px;"/>
+              
+                <table class="confluenceTable">
+                    <tr>
+                        <th class="confluenceTh">
+                        Property
+                       
+                        </th>
+                        <th class="confluenceTh">
+                           Type
+                           
+                        </th>
+                        <th class="confluenceTh">
+                           Description
+                           
+                        </th>
+                        <th class="confluenceThnoverflow">
+                           Supported Platform(s)
+                           
+                        </th>
+                    </tr>
+                    
+                    
+                        <tr x-ww-support="bb6.0|bb7.0">
+                            <td class="confluenceTd"><a name="bannerTransitions" class="propertyName">bannerTransitions</a></td>
+                            <td class="confluenceTd">
+                                
+                                
+                                    Boolean
+                                
+                                
+                                     = false
+                                
+                                
+                            </td>
+                            
+                            <td class="confluenceTd">Determines whether banner transitions will be enabled.
+                                
+                                    <br/>
+                                    
+                                
+                                               
+                            </td>
+                            
+                            <td class="confluenceTdnoverflow">
+                                              
+                                    
+                                        &nbsp;- BlackBerry OS 6.0+
+                                        <br/>
+                                                      
+                                
+                            </td>
+                        </tr>
+                    
+                        <tr x-ww-support="bb6.0|bb7.0">
+                            <td class="confluenceTd"><a name="focusBorderColor" class="propertyName">focusBorderColor</a></td>
+                            <td class="confluenceTd">
+                                
+                                
+                                    String
+                                
+                                
+                                     = 'blue'
+                                
+                                
+                            </td>
+                            
+                            <td class="confluenceTd">Specifies the focus border colour of the Advertising Banner. Both RGB (ie #667766) and colour names (ie blue) are valid.
+                                
+                                    <br/>
+                                    
+                                
+                                               
+                            </td>
+                            
+                            <td class="confluenceTdnoverflow">
+                                              
+                                    
+                                        &nbsp;- BlackBerry OS 6.0+
+                                        <br/>
+                                                      
+                                
+                            </td>
+                        </tr>
+                    
+                        <tr x-ww-support="bb6.0|bb7.0">
+                            <td class="confluenceTd"><a name="focusBorderWidth" class="propertyName">focusBorderWidth</a></td>
+                            <td class="confluenceTd">
+                                
+                                
+                                    String
+                                
+                                
+                                     = '2px'
+                                
+                                
+                            </td>
+                            
+                            <td class="confluenceTd">Sets the border width of the banner when focused.
+                                
+                                    <br/>
+                                    
+                                
+                                               
+                            </td>
+                            
+                            <td class="confluenceTdnoverflow">
+                                              
+                                    
+                                        &nbsp;- BlackBerry OS 6.0+
+                                        <br/>
+                                                      
+                                
+                            </td>
+                        </tr>
+                    
+                        <tr x-ww-support="bb6.0|bb7.0">
+                            <td class="confluenceTd"><a name="metadata" class="propertyName">metadata</a></td>
+                            <td class="confluenceTd">
+                                
+                                
+                                    JSON
+                                
+                                
+                                
+                            </td>
+                            
+                            <td class="confluenceTd">Specify the metadata (key/value pairs) for more targeted Advertisement.
+                                
+                                    <br/>
+                                    
+                                
+                                               
+                            </td>
+                            
+                            <td class="confluenceTdnoverflow">
+                                              
+                                    
+                                        &nbsp;- BlackBerry OS 6.0+
+                                        <br/>
+                                                      
+                                
+                            </td>
+                        </tr>
+                    
+                        <tr x-ww-support="bb6.0|bb7.0">
+                            <td class="confluenceTd"><a name="mmaSize" class="propertyName">mmaSize</a></td>
+                            <td class="confluenceTd">
+                                
+                                
+                                    String
+                                
+                                
+                                     = "auto"
+                                
+                                
+                            </td>
+                            
+                            <td class="confluenceTd">Specify the size of the banner. Should be one of;
+<ul>
+<li>"small"</li>
+<li>"medium"</li>
+<li>"large"</li>
+<li>"extralarge"</li>
+<li>"extraextralarge"</li>
+<li>"auto"</li>
+</ul>
+                                
+                                    <br/>
+                                    
+                                
+                                               
+                            </td>
+                            
+                            <td class="confluenceTdnoverflow">
+                                              
+                                    
+                                        &nbsp;- BlackBerry OS 6.0+
+                                        <br/>
+                                                      
+                                
+                            </td>
+                        </tr>
+                    
+                        <tr x-ww-support="bb6.0|bb7.0">
+                            <td class="confluenceTd"><a name="placeholder" class="propertyName">placeholder</a></td>
+                            <td class="confluenceTd">
+                                
+                                
+                                    String
+                                
+                                
+                                
+                            </td>
+                            
+                            <td class="confluenceTd">Set temporary place holder URL for the banner.
+                                
+                                    <br/>
+                                    
+                                
+                                               
+                            </td>
+                            
+                            <td class="confluenceTdnoverflow">
+                                              
+                                    
+                                        &nbsp;- BlackBerry OS 6.0+
+                                        <br/>
+                                                      
+                                
+                            </td>
+                        </tr>
+                    
+                        <tr x-ww-support="bb6.0|bb7.0">
+                            <td class="confluenceTd"><a name="refreshRate" class="propertyName">refreshRate</a></td>
+                            <td class="confluenceTd">
+                                
+                                
+                                    Number
+                                
+                                
+                                     = 60000
+                                
+                                
+                            </td>
+                            
+                            <td class="confluenceTd">Set the banner refresh time in miliseconds. The timer cannot be set to less than 60000 ms.
+                                
+                                    <br/>
+                                    
+                                
+                                               
+                            </td>
+                            
+                            <td class="confluenceTdnoverflow">
+                                              
+                                    
+                                        &nbsp;- BlackBerry OS 6.0+
+                                        <br/>
+                                                      
+                                
+                            </td>
+                        </tr>
+                    
+                </table>
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </div>
+        
+        
+<!-- ============================== constant details ========================== -->     
+        
+    
+<!-- ============================== URI  ==================== -->           
+        
+        
+        
+        
+                    
+<!-- ============================== footer ================================= -->
+        <hr style="margin-bottom: 15px;"/>
+        <div class="fineprint" style="clear: both">
+            
+            Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Sep 21 2011 15:04:15 GMT-0000 (UTC)
+        </div>
+        
+    </div></body>
+</html>
